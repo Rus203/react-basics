@@ -2,6 +2,7 @@ import react, { Component } from "react";
 import PropTypes from "prop-types";
 
 import Form from "./Form";
+import Table from "./Table/index";
 
 class App extends Component {
   constructor(props) {
@@ -23,8 +24,8 @@ class App extends Component {
   }
 
   removeUser(id) {
-    const users = this.props.users.filter((element) => element !== id);
-    this.setState(users);
+    const users = this.state.users.filter((element) => element.id !== id);
+    this.setState({users});
   }
 
   render() {
@@ -33,6 +34,7 @@ class App extends Component {
         <div className="form">
           <Form onAdd={this.addUser} />
         </div>
+        <Table onDelete={this.removeUser} users={this.state.users} />
       </div>
     );
   }
