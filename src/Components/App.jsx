@@ -4,6 +4,9 @@ import PropTypes from "prop-types";
 import Form from "./Form";
 import Table from "./Table/index";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -15,26 +18,27 @@ class App extends Component {
 
   addUser(newUser) {
     newUser.id = this.state.counter;
-    const users = [
-      ...this.state.users,
-      newUser,
-    ];
+    const users = [...this.state.users, newUser];
 
     this.setState({ users, counter: newUser.id + 1 });
   }
 
   removeUser(id) {
     const users = this.state.users.filter((element) => element.id !== id);
-    this.setState({users});
+    this.setState({ users });
   }
 
   render() {
     return (
-      <div className="react-application">
+      <div className="container mt-4">
         <div className="form">
           <Form onAdd={this.addUser} />
+
         </div>
-        <Table onDelete={this.removeUser} users={this.state.users} />
+      <hr style={{width: "75%", marginLeft: "17%", float: "center"}}/>
+        <div>
+          <Table onDelete={this.removeUser} users={this.state.users} />
+        </div>
       </div>
     );
   }

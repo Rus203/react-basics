@@ -1,3 +1,5 @@
+import react from "react";
+
 const Thead = () => {
   return (
     <thead>

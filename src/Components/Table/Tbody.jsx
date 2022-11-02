@@ -11,7 +11,7 @@ const Tbody = ({ users, onDelete }) => {
           <td>{item.lastName}</td>
           <td>{item.email}</td>
           <td>
-            <button onClick={() => onDelete(item.id)}>Delete</button>
+            <button className="btn btn-danger" onClick={() => onDelete(item.id)}>Delete</button>
           </td>
         </tr>
       ))}

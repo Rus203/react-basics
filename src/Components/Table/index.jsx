@@ -6,12 +6,11 @@ import Tbody from "./Tbody";
 
 const Table = ({ users, onDelete }) => {
   return (
-    <div className="table">
-      <table>
-        <Thead />
-        <Tbody users={users} onDelete={onDelete} />
-      </table>
-    </div>
+    <table className="table table-striped caption-top">
+      <caption className="fs-4 fw-bold text-dark">Users</caption>
+      <Thead />
+      <Tbody users={users} onDelete={onDelete} />
+    </table>
   );
 };
 
