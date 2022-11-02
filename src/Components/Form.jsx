@@ -12,6 +12,9 @@ const Form = ({ onAdd }) => {
     };
 
     onAdd(user);
+    firstName.value = "";
+    lastName.value = "";
+    email.value = "";
   };
 
   return (

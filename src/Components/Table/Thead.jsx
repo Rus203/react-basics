@@ -4,11 +4,11 @@ const Thead = () => {
   return (
     <thead>
       <tr>
-        <th>Id</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Email</th>
-        <th>Action</th>
+        <th width="17%">Id</th>
+        <th width="17%">First name</th>
+        <th width="17%">Last name</th>
+        <th width="17%">Email</th>
+        <th width="17%">Action</th>
       </tr>
     </thead>
   );
