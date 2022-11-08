@@ -27,21 +27,21 @@ const Form = ({ onAdd }) => {
       </div>
 
       <div className="col-md-3  ">
-        <label className="form-label fw-bold" for="firstName">
+        <label className="form-label fw-bold" htmlFor="firstName">
           First name
         </label>
         <input className="form-control" type="text" name="firstName" required />
       </div>
 
       <div className="col-md-3">
-        <label className="form-label fw-bold" for="lastName">
+        <label className="form-label fw-bold" htmlFor="lastName">
           Second name
         </label>
         <input className="form-control" type="text" name="lastName" required />
       </div>
 
       <div className="col-md-3">
-        <label className="form-label fw-bold" for="email">
+        <label className="form-label fw-bold" htmlFor="email">
           Email
         </label>
         <input className="form-control" type="email" name="email" required />
