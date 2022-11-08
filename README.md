@@ -11,7 +11,7 @@ By default the app has already had the **default account**. You can you it or cr
 
 | Name        | Email         | Password  |
 | ------------- |:-----------:| -----:|
-| admin     | admin | admin@gmail.com |
+| admin     | admin@gmail.com | admin  |
 
 
 
