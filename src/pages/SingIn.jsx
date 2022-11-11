@@ -1,23 +1,36 @@
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
 
-const SignIn = ({ isLogIn, changeAllowed }) => {
+import { changeAllowed } from "../redux/actions/rest";
+
+const SignIn = () => {
   let navigate = useNavigate();
+  const dispatch = useDispatch();
+  const accounts = useSelector((state) => state.accounts);
+
+  const isLogIn = ({ email, password }) => {
+    return accounts.some(
+      (item) => item.email === email && item.password === password
+    );
+  };
 
   const onSubmit = (event) => {
     event.preventDefault();
     let { email, password } = event.target;
-    if (isLogIn({ email: email.value.trim(), password: password.value.trim() })) {
-      changeAllowed()
+
+    if (
+      isLogIn({ email: email.value.trim(), password: password.value.trim() })
+    ) {
+      dispatch(changeAllowed());
       navigate("/");
     } else {
       alert("Sorry, try again");
     }
   };
-   
+
   return (
-    <div className="container text-center" style ={{marginTop: "7%"}}>
+    <div className="container text-center" style={{ marginTop: "7%" }}>
       <form className="row m-5" onSubmit={onSubmit}>
         <h1>Welcome</h1>
         <p>Sign-in to get started</p>
@@ -58,11 +71,5 @@ const SignIn = ({ isLogIn, changeAllowed }) => {
     </div>
   );
 };
-
-SignIn.propTypes = {
-  isLogIn: PropTypes.func,
-  changeAllowed: PropTypes.func,
-  isAllowed: PropTypes.bool
-}
 
 export default SignIn;

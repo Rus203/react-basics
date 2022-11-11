@@ -13,6 +13,9 @@ By default the app has already had the **default account**. You can you it or cr
 | ------------- |:-----------:| -----:|
 | admin     | admin@gmail.com | admin  |
 
+### Stage 3
+In the conclusion, I turned on redux, react-redux and wrote necessary functions (actions, reduces) for correct  app work properly.
+
 
 
 
