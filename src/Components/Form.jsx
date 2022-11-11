@@ -1,17 +1,24 @@
-import react from "react";
-import PropTypes from "prop-types";
+import { useSelector, useDispatch } from "react-redux";
+import { addUser } from "../redux/actions/users";
+import { incrementUserCounter } from "../redux/actions/rest"
 
-const Form = ({ onAdd }) => {
+const Form = () => {
+  const dispatch = useDispatch();
+  const newId = useSelector((state) => state.userCounter);
+
   const onSubmit = (event) => {
     event.preventDefault();
-    let { firstName, lastName, email } = event.target;
-    const user = {
+    const { firstName, lastName, email } = event.target;
+    
+    const newUser = {
+      id: newId,
       firstName: firstName.value,
       lastName: lastName.value,
       email: email.value,
     };
 
-    onAdd(user);
+    dispatch(addUser(newUser));
+    dispatch(incrementUserCounter())
     firstName.value = "";
     lastName.value = "";
     email.value = "";
@@ -48,10 +55,6 @@ const Form = ({ onAdd }) => {
       </div>
     </form>
   );
-};
-
-Form.propTypes = {
-  onAdd: PropTypes.func,
 };
 
 export default Form;

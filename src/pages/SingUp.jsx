@@ -1,20 +1,27 @@
-import PropTypes from "prop-types";
 import { useNavigate } from "react-router";
 
-const SignUp = ({ createNewAccount, changeAllowed }) => {
-  let navigate = useNavigate();
+import { useDispatch, useSelector } from "react-redux";
+import { addAccount } from "../redux/actions/accounts";
+import { changeAllowed, incrementAccountCounter } from "../redux/actions/rest";
+
+const SignUp = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const newId = useSelector((state) => state.accountCounter);
 
   const onSubmit = (event) => {
     event.preventDefault();
     let { name, email, password } = event.target;
     const newAccount = {
+      id: newId,
       name: name.value,
       password: password.value,
       email: email.value,
     };
 
-    createNewAccount(newAccount);
-    changeAllowed();
+    dispatch(addAccount(newAccount));
+    dispatch(changeAllowed());
+    dispatch(incrementAccountCounter());
     navigate("/");
   };
 
@@ -72,11 +79,6 @@ const SignUp = ({ createNewAccount, changeAllowed }) => {
       </form>
     </div>
   );
-};
-
-SignUp.propTypes = {
-  createNewAccount: PropTypes.func,
-  changeAllowed: PropTypes.func
 };
 
 export default SignUp;

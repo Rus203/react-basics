@@ -1,29 +1,26 @@
 import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import Form from "../Components/Form";
 import Table from "../Components/Table/index";
-import PropTypes from 'prop-types'
 
-const Home = ({ removeUser, addUser, users = [], isAllowed = false }) => {
+
+const Home = () => {
+  const isAllowed = useSelector(state => state.allowed)
+  
   return !isAllowed ? (
     <Navigate replace to="signIn" />
   ) : (
     <div className="container mt-4">
       <div className="form">
-        <Form onAdd={addUser} />
+        <Form />
       </div>
       <hr style={{ width: "75%", marginLeft: "17%", float: "center" }} />
       <div>
-        <Table onDelete={removeUser} users={users} />
+        <Table />
       </div>
     </div>
   );
 };
-
-Home.propTypes = {
-  removeUser: PropTypes.func,
-  addUser: PropTypes.func,
-  users: PropTypes.array,
-  isAllowed: PropTypes.bool
-}
 
 export default Home;
