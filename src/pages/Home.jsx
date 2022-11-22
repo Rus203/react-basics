@@ -6,7 +6,7 @@ import Table from "../Components/Table/index";
 
 
 const Home = () => {
-  const isAllowed = useSelector(state => state.allowed)
+  const isAllowed = true;  //useSelector(state => state.allowed)
   
   return !isAllowed ? (
     <Navigate replace to="signIn" />
