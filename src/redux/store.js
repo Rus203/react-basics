@@ -5,40 +5,17 @@ import { allowed, accountCounter, userCounter } from "./reducers/rest";
 import { accounts } from "./reducers/accounts";
 
 let initialState = {
-  users: [
-    {
-      id: 1,
-      firstName: "Vika",
-      lastName: "Bagramyna",
-      email: "bagr@mail.ru",
-    },
-  ],
+  users: [],
   accounts: [
     {
-      id: 1,
       login: "admin",
       password: "admin",
       email: "admin@gmail.com",
     },
   ],
-  accountCounter: 1,
-  userCounter: 2,
+
   allowed: false,
 };
-
-// let newUser = {
-//   id: 4,
-//   firstName: "Ruslan",
-//   lastName: "Kharkevich",
-//   email: "mail@yandex.by",
-// };
-
-// let newAcc = {
-//   id: 2,
-//   login: "user",
-//   password: "user",
-//   email: "user@gmail.com",
-// };
 
 const store = createStore(
   combineReducers({ users, allowed, userCounter, accountCounter, accounts }),

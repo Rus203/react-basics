@@ -4,10 +4,9 @@ import { useSelector } from "react-redux";
 import Form from "../Components/Form";
 import Table from "../Components/Table/index";
 
-
 const Home = () => {
-  const isAllowed = useSelector(state => state.allowed)
-  
+  const isAllowed = useSelector((state) => state.allowed);
+
   return !isAllowed ? (
     <Navigate replace to="signIn" />
   ) : (

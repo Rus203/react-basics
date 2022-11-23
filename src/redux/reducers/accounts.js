@@ -1,3 +1,4 @@
+import generateId from "../../utils/generateId";
 import { accounts as C } from "../constants";
 
 export const account = (state = {}, action) => {
@@ -17,7 +18,8 @@ export const account = (state = {}, action) => {
 
 export const accounts = (state = [], action) => {
   switch (action.type) {
-    case C.ADD_ACCOUNT: 
+    case C.ADD_ACCOUNT:
+      action.id = generateId(state);
       return [...state, account({}, action)];
     case C.REMOVE_USER:
       return state.filter((item) => item.id !== action.id);
