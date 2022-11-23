@@ -5,14 +5,7 @@ import { allowed, accountCounter, userCounter } from "./reducers/rest";
 import { accounts } from "./reducers/accounts";
 
 let initialState = {
-  users: [
-    {
-      id: 1,
-      firstName: "Vika",
-      lastName: "Bagramyna",
-      email: "bagr@mail.ru",
-    },
-  ],
+  users: [],
   accounts: [
     {
       id: 1,
