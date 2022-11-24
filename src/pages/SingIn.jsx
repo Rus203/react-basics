@@ -30,7 +30,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="container text-center" style={{ marginTop: "7%" }}>
+    <div className="container-fluid text-center" style={{ marginTop: "7%" }}>
       <form className="row m-5" onSubmit={onSubmit}>
         <h1>Welcome</h1>
         <p>Sign-in to get started</p>
@@ -62,7 +62,7 @@ const SignIn = () => {
           />
         </div>
       </form>
-      <div className="p-3 mb-2 bg-light text-dark text fixed-bottom">
+      <div className="p-3 text-dark text ">
         <h4>
           First time here?
           <NavLink to="../signUp"> Just sign-up</NavLink>
