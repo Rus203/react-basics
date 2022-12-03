@@ -1,24 +1,20 @@
 import { useSelector, useDispatch } from "react-redux";
 import { addUser } from "../redux/actions/users";
-import { incrementUserCounter } from "../redux/actions/rest"
 
 const Form = () => {
   const dispatch = useDispatch();
-  const newId = useSelector((state) => state.userCounter);
 
   const onSubmit = (event) => {
     event.preventDefault();
     const { firstName, lastName, email } = event.target;
     
     const newUser = {
-      id: newId,
       firstName: firstName.value,
       lastName: lastName.value,
       email: email.value,
     };
 
     dispatch(addUser(newUser));
-    dispatch(incrementUserCounter())
     firstName.value = "";
     lastName.value = "";
     email.value = "";

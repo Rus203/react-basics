@@ -16,7 +16,7 @@ const Tbody = () => {
       .then(response => response.json())
       .then(response => response.results)
       .then(results => results.map(person => ({ id: person.id.value, firstName: person.name.first, lastName: person.name.last, email: person.email })))
-      .then(users => users.map(user => dispatch(addUser(user))));
+      .then(users => users.forEach(user => dispatch(addUser(user))));
   }, []);
 
   return users.length === 0

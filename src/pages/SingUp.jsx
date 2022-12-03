@@ -2,18 +2,16 @@ import { useNavigate } from "react-router";
 
 import { useDispatch, useSelector } from "react-redux";
 import { addAccount } from "../redux/actions/accounts";
-import { changeAllowed, incrementAccountCounter } from "../redux/actions/rest";
+import { changeAllowed } from "../redux/actions/rest";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const newId = useSelector((state) => state.accountCounter);
 
   const onSubmit = (event) => {
     event.preventDefault();
     let { name, email, password } = event.target;
     const newAccount = {
-      id: newId,
       name: name.value,
       password: password.value,
       email: email.value,
@@ -21,7 +19,6 @@ const SignUp = () => {
 
     dispatch(addAccount(newAccount));
     dispatch(changeAllowed());
-    dispatch(incrementAccountCounter());
     navigate("/");
   };
 
