@@ -1,6 +1,6 @@
 import { rest } from "../constants";
 
-const { INVERSE_STATUS, INCREMENT_USER_COUNTER, INCREMENT_ACCOUNT_COUNTER } = rest;
+const { INVERSE_STATUS } = rest;
 
 export const changeAllowed = () => {
   return {

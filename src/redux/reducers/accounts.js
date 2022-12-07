@@ -19,7 +19,7 @@ export const account = (state = {}, action) => {
 export const accounts = (state = [], action) => {
   switch (action.type) {
     case C.ADD_ACCOUNT:
-      action.id = generateId(state);
+      action.id = state.length + 1;
       return [...state, account({}, action)];
     case C.REMOVE_USER:
       return state.filter((item) => item.id !== action.id);
