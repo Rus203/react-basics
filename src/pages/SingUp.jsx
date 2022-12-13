@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addAccount } from "../redux/actions/accounts";
 import { changeAllowed } from "../redux/actions/rest";
 
@@ -68,7 +68,7 @@ const SignUp = () => {
         </div>
         <div className="text-center">
           <input
-            className="btn btn-outline-danger"
+            className="btn btn-outline-primary"
             type="submit"
             value="Sign-up"
           />

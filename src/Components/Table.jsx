@@ -1,6 +1,16 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeUser, addUser } from "../../redux/actions/users";
+import { removeUser, addUser } from "../redux/actions/users";
+
+const Table = () => {
+  return (
+    <table className="table table-striped caption-top">
+      <caption className="fs-4 fw-bold text-dark">Users</caption>
+      <Thead />
+      <Tbody />
+    </table>
+  );
+};
 
 const Tbody = () => {
   const dispatch = useDispatch();
@@ -30,7 +40,7 @@ const Tbody = () => {
             <td>{item.lastName}</td>
             <td>{item.email}</td>
           <td>
-            <button className="btn btn-danger" onClick={() => onDelete(item.id)}>
+            <button className="btn btn-primary" onClick={() => onDelete(item.id)}>
               Delete
             </button>
           </td>
@@ -40,4 +50,18 @@ const Tbody = () => {
       );
 };
 
-export default Tbody;
+const Thead = () => {
+  return (
+    <thead>
+      <tr>
+        <th width="17%">Id</th>
+        <th width="17%">First name</th>
+        <th width="17%">Last name</th>
+        <th width="17%">Email</th>
+        <th width="17%">Action</th>
+      </tr>
+    </thead>
+  );
+};
+
+export default Table;
