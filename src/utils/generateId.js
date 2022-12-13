@@ -1,12 +1,5 @@
 const generateId = (state = []) => {
-  let id = 1;
-  while (true) {
-    if (state.every(item => item.id !== id)) {
-      return id;
-    }
-
-    id++;
-  }
-};
+  return state.length === 0 ? 1 : Math.max(...state.map(item => item.id)) + 1;
+}
 
 export default generateId;
