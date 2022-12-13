@@ -1,16 +1,26 @@
-import { Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-
+import React from 'react';
 import Form from "../Components/Form";
-import Table from "../Components/Table/index";
+import Table from "../Components/Table";
+
+import { useDispatch } from "react-redux";
+import ProtectedRoute from "../Components/ProtectedRoute";
+import { changeAllowed } from "../redux/actions/rest";
+import { useNavigate } from "react-router";
+
 
 const Home = () => {
-  const isAllowed = useSelector((state) => state.allowed);
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
 
-  return !isAllowed ? (
-    <Navigate replace to="signIn" />
-  ) : (
+  const onClose = (e) => {
+    e.preventDefault();
+    dispatch(changeAllowed());
+    navigate("/");
+  }
+
+  return (
     <div className="container mt-4">
+      <button className="btn btn-primary float-end" onClick={onClose}>Log out</button>
       <div className="form">
         <Form />
       </div>
@@ -22,4 +32,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default ProtectedRoute(Home);

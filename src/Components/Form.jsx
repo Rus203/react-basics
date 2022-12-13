@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addUser } from "../redux/actions/users";
 
 const Form = () => {
@@ -25,10 +25,6 @@ const Form = () => {
       className="row align-items-end justify-content-center"
       onSubmit={onSubmit}
     >
-      <div className="col-md-2">
-        <input className="btn btn-danger" type="submit" value="Add User" />
-      </div>
-
       <div className="col-md-3  ">
         <label className="form-label fw-bold" htmlFor="firstName">
           First name
@@ -48,6 +44,9 @@ const Form = () => {
           Email
         </label>
         <input className="form-control" type="email" name="email" required />
+      </div>
+      <div className="col-md-2">
+        <input className="btn btn-primary" type="submit" value="Add User" />
       </div>
     </form>
   );
