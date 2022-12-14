@@ -1,7 +1,7 @@
 import { createStore, combineReducers } from "redux";
 
 import { users } from "./reducers/users";
-import { allowed, accountCounter, userCounter } from "./reducers/rest";
+import { allowed } from "./reducers/rest";
 import { accounts } from "./reducers/accounts";
 
 let initialState = {
@@ -18,7 +18,7 @@ let initialState = {
 };
 
 const store = createStore(
-  combineReducers({ users, allowed, userCounter, accountCounter, accounts }),
+  combineReducers({ users, allowed, accounts }),
   initialState
 );
 store.subscribe(() => store.getState());

@@ -56,7 +56,7 @@ const SignIn = () => {
         </div>
         <div>
           <input
-            className="btn btn-outline-danger"
+            className="btn btn-outline-primary"
             type="submit"
             value="Sign-in"
           />
