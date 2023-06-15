@@ -2,10 +2,6 @@ version: '3.8'
 services:
   react-app:
     container_name: react-test
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: ./
     ports:
       - 7000:3000
-    volumes:
-      - './src:/app/src'
